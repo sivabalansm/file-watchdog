@@ -1,0 +1,7 @@
+- [x] File change event listener
+    - [ ] handle folders recursivly (look at bookmarks for algo)
+        - [ ] remove deleted folders from the watchlist
+    - [ ] dynamically allocate memory for events 
+- [ ] Daemon creation
+- [ ] Create client program to interface with daemon
+- [ ] BlackBlazeB2 C++ wrapper and send events there through sockets

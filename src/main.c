@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 		perror("inotify_init");
 	}
 
-	int wd = inotify_add_watch(fd, "/", IN_CREATE);
+	int wd = inotify_add_watch(fd, "/tmp", IN_CREATE | IN_ATTRIB | IN_DELETE);
 	while (1) {
 		i = 0;
 		length = read(fd, buf, EVENT_BUF_LEN);
@@ -39,11 +39,7 @@ int main(int argc, char *argv[]) {
 
 			if (event->len) {
 				printf("file to backup: %s\n", event->name);
-				// for (int j = 0; j < length; j++) {
-				// 	printf("%c\n", buf[j]);
-				// }
-				// printf("%s\n", );
-				
+				printf("event length: %d\n", event->len);
 			}
 			i += EVENT_SIZE + event->len;
 		}
